@@ -9,10 +9,11 @@ gold/alerts_sqli           web requests matching SQL injection signatures
 """
 import os
 
-import detections as rules
 from pyspark.sql import Column, DataFrame, SparkSession
 from pyspark.sql import functions as F
 from pyspark.sql import types as T
+
+import detections as rules
 
 KAFKA = os.getenv("KAFKA_BOOTSTRAP", "kafka:9092")
 TOPIC = os.getenv("KAFKA_TOPIC", "security-logs")

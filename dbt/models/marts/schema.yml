@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: fct_security_alerts
+    description: Unified alert fact table across brute force, port scan and SQL injection detections.
+    columns:
+      - name: alert_id
+        tests: [not_null, unique]
+      - name: alert_type
+        tests:
+          - accepted_values:
+              values: ["brute_force", "port_scan", "sql_injection"]
+  - name: agg_alerts_daily
+    description: Daily alert counts by type and severity.
+  - name: dim_threat_actors
+    description: One row per attacking IP with a simple risk score.
+    columns:
+      - name: src_ip
+        tests: [not_null, unique]

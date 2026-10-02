@@ -6,6 +6,7 @@ import time
 
 from confluent_kafka import KafkaException, Producer
 from confluent_kafka.admin import AdminClient
+
 from log_generator import LogGenerator
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")

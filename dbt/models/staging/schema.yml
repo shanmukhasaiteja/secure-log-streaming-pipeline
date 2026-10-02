@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: stg_alerts_bruteforce
+    description: Failed-login bursts per source IP per minute.
+    columns: &alert_columns
+      - name: detected_at
+        tests: [not_null]
+      - name: src_ip
+        tests: [not_null]
+      - name: severity
+        tests:
+          - accepted_values:
+              values: ["critical", "high", "medium", "low"]
+  - name: stg_alerts_portscan
+    description: Source IPs probing many distinct ports within one minute.
+    columns: *alert_columns
+  - name: stg_alerts_sqli
+    description: Web requests matching SQL injection signatures.
+    columns: *alert_columns
