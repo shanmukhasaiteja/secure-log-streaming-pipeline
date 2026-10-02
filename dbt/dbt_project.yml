@@ -1,0 +1,18 @@
+name: security_lakehouse
+version: "1.0.0"
+config-version: 2
+profile: security_lakehouse
+
+model-paths: ["models"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+vars:
+  lake_path: "{{ env_var('LAKE_PATH', '/data/lake') }}"
+
+models:
+  security_lakehouse:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table
