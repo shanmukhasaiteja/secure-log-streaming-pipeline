@@ -131,7 +131,7 @@ All settings live in `.env` (created from `.env.example` on first `make up`):
 
 ## 🗺️ Roadmap
 
-- [ ] Feed silver events into an ML anomaly detector (ml-intrusion-detection, coming next)
+- [ ] Let an AI agent operate this pipeline: diagnose failed Spark / dbt runs and fix or escalate them ([autonomous-dataops-agent](https://github.com/shanmukhasaiteja/autonomous-dataops-agent))
 - [ ] Enrich IPs with threat-intel reputation feeds
 - [ ] Push critical alerts to Slack / PagerDuty
 - [ ] Deploy on cloud object storage (S3 + Databricks / EMR)
